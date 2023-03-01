@@ -556,8 +556,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1024560205301068166, guid: dc629dc53bccd7f4db193a1813466e9a,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024560205301068166, guid: dc629dc53bccd7f4db193a1813466e9a,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.6587
       objectReference: {fileID: 0}
     - target: {fileID: 1024560205301068166, guid: dc629dc53bccd7f4db193a1813466e9a,
         type: 3}
@@ -1270,7 +1275,7 @@ PrefabInstance:
     - target: {fileID: 6889888856020347367, guid: b143cbe0ce0e9be46bedb2de062f0322,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Balloon Man - Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b143cbe0ce0e9be46bedb2de062f0322, type: 3}
