@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4518851489211442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 8.61}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1227,7 +1227,9 @@ GameObject:
   - component: {fileID: 3536534071939850799}
   - component: {fileID: 4941509310908356182}
   - component: {fileID: 3301923268293828453}
-  m_Layer: 0
+  - component: {fileID: 4767977253207129871}
+  - component: {fileID: 2418474562656753281}
+  m_Layer: 6
   m_Name: Obstacle_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1315,6 +1317,8 @@ MonoBehaviour:
   selectedTransform: {fileID: 4659259654008473346}
   canRotate: 1
   rotation: {x: 0, y: 3600, z: 0}
+  endRotation: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0}
   rotateDuration: 10
   loopCount: -1
   loopType: 1
@@ -1322,6 +1326,32 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 0, y: 0, z: 0}
   moveDuration: 0
+--- !u!114 &4767977253207129871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752226519202184183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477388379aa248f7908dc11cbd934553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+--- !u!65 &2418474562656753281
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752226519202184183}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1562319, y: 1.4954618, z: 2.8035295}
+  m_Center: {x: -0.000000059604645, y: 0.7477315, z: -1.6830722}
 --- !u!1 &8057688035828346047
 GameObject:
   m_ObjectHideFlags: 0

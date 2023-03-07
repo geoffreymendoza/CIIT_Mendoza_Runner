@@ -1011,7 +1011,9 @@ GameObject:
   - component: {fileID: 1946289190434521478}
   - component: {fileID: 1020350864965382755}
   - component: {fileID: 1660555552894448030}
-  m_Layer: 0
+  - component: {fileID: 2757314016822235133}
+  - component: {fileID: 8290204720018303806}
+  m_Layer: 6
   m_Name: Obstacle_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1099,6 +1101,8 @@ MonoBehaviour:
   selectedTransform: {fileID: 4956182853566354668}
   canRotate: 1
   rotation: {x: 0, y: 3600, z: 0}
+  endRotation: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0}
   rotateDuration: 10
   loopCount: -1
   loopType: 1
@@ -1106,6 +1110,32 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   endPosition: {x: 0, y: 0, z: 0}
   moveDuration: 0
+--- !u!114 &2757314016822235133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7218959211932322846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477388379aa248f7908dc11cbd934553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+--- !u!65 &8290204720018303806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7218959211932322846}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9810604, y: 2.7963789, z: 5.8}
+  m_Center: {x: -0.00017547607, y: 1.3981894, z: -0.00000011920929}
 --- !u!1 &7500547336484572496
 GameObject:
   m_ObjectHideFlags: 0

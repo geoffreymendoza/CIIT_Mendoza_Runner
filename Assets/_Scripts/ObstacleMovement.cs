@@ -28,7 +28,6 @@ public class ObstacleMovement : MonoBehaviour
             selectedTransform.DOLocalRotate(rotation, rotateDuration, RotateMode.LocalAxisAdd).SetLoops(loopCount, loopType).SetEase(Ease.Linear);
         if (canMove)
             StartMovement();
-
     }
 
     private void StartMovement()

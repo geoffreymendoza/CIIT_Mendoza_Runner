@@ -5,21 +5,15 @@ using UnityEngine;
 
 public class CasualMovement : MonoBehaviour
 {
+    private bool startGame = false;
     [SerializeField] private float moveSpeed = 4f;
-    private Animator anim;
     private Rigidbody rb;
-
     private Vector3 direction;
-
-    //private int floatingAnim = Animator.StringToHash("Floating");
-    //private int crawlingAnim = Animator.StringToHash("Crawling");
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        anim.SetFloat("nav_speed", 1);
     }
 
     // Update is called once per frame
@@ -39,6 +33,7 @@ public class CasualMovement : MonoBehaviour
     }
 
     private void Move(Vector3 dir) {
+        if (GameManager.CurrentState != GameState.InGame) return;
         dir.z = 1;
         rb.MovePosition(transform.position + dir * (moveSpeed * Time.fixedDeltaTime));
     }
