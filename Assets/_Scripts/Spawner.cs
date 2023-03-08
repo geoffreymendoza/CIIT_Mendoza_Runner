@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
             return;
         }
         //SPAWN Obstacle
-        int randIdx = Random.Range(0, obstacles.Length - 1);
+        int randIdx = Random.Range(0, obstacles.Length);
         currentInteractable = Instantiate(obstacles[randIdx], spawnPoint);
     }
 }
