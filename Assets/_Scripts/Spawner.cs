@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
         }
         
         float randomChance = Random.value;
-        Debug.Log(randomChance);
+        // Debug.Log(randomChance);
         if (randomChance <= 0.5f) 
             return;
         //TODO object pooling

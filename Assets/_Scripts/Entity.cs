@@ -27,6 +27,7 @@ public abstract class Entity : MonoBehaviour, IHealthHandler
                 break;
         }
 
+        // Debug.Log($"Current Health: {CurrentHealth}");
         if (!IsAlive) {
             //TODO death callback
             GameManager.ChangeState(GameState.Lose);

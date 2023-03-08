@@ -1,19 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalChanger : MonoBehaviour
 {
     [SerializeField] private bool starterTiles = false;
-    
-    
     [SerializeField] private Portal leftPortal;
     [SerializeField] private Portal rightPortal;
-    
-    
+
     // Start is called before the first frame update
     void Start() {
         if (starterTiles) {
+            starterTiles = false;
             leftPortal.gameObject.SetActive(false);
             rightPortal.gameObject.SetActive(false);
             return;

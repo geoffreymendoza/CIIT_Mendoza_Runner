@@ -44,26 +44,29 @@ public class BalloonCharacter : Entity
             return;
         }
         base.Apply(type);
-        //TODO fixed body parts issue
-        int bodyIndex = Mathf.Clamp(CurrentHealth, 0, bodyParts.Length - 1);
-        // int bodyIndex = CurrentHealth - 1;
-        //bodyParts[CurrentHealth].ModifyBodyParts();
-        switch (type) {
-            case ApplyType.Damage:
-                bodyParts[bodyIndex].ModifyBodyParts(false);
-                break;
-            case ApplyType.Regen:
-                bodyParts[bodyIndex].ModifyBodyParts(true);
-                break;
-        }
-        
+        AlterBodyParts(type);
         if (CurrentHealth == MaxHealth) {
             anim.CrossFade(Data.RUNNING_ANIM, 0.5f);
             return;
         }
-        anim.CrossFade(Data.CRAWLING_ANIM, .75f);
+        anim.CrossFade(Data.CRAWLING_ANIM, .25f);
+        // TODO popup balloon death
         // if(!IsAlive)
-        // TODO popup balloon
+    }
+
+    private void AlterBodyParts(ApplyType type) {
+        int bodyIndex = 0;
+        switch (type) {
+            case ApplyType.Damage:
+                bodyIndex = CurrentHealth;
+                bodyParts[bodyIndex].ModifyBodyParts(false);
+                break;
+            case ApplyType.Regen:
+                bodyIndex = CurrentHealth;
+                bodyIndex -= 1;
+                bodyParts[bodyIndex].ModifyBodyParts(true);
+                break;
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -86,6 +89,7 @@ public class BodyPart
         if (enableParts == activate) 
             return;
         enableParts = activate;
+        // Debug.Log($"{BodyPartName} : {activate}");
         foreach (var part in Parts) {
             part.gameObject.SetActive(activate);
         }
