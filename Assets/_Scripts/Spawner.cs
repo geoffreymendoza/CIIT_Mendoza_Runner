@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -9,9 +7,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject balloon;
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private float yOffsetMultiplier = 2f;
-    
     private GameObject currentInteractable;
-    
 
     // Start is called before the first frame update
     void Start() {

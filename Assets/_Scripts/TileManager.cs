@@ -69,9 +69,12 @@ public class TileManager : MonoBehaviour
 
     private void AssignPosition() {
         tiles[currentIdx].transform.position = nextTilePos;
+        //TODO more efficient way
         if (tiles[currentIdx].TryGetComponent(out Spawner spawner)) {
             spawner.SpawnInteractable();
-            // tiles[currentIdx].SpawnInteractable();
+        }
+        if (tiles[currentIdx].TryGetComponent(out PortalChanger portalChanger)) {
+            portalChanger.RandomAssignPortals();
         }
         currentIdx = IncrementIndex(currentIdx, tiles.Length);
     }
