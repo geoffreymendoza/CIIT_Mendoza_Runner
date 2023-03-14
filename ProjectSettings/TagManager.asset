@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacles
   - PlayerBalloon
+  - Missile
+  - Ground
   layers:
   - Default
   - TransparentFX
