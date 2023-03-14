@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DiceScript : MonoBehaviour
@@ -12,48 +10,59 @@ public class DiceScript : MonoBehaviour
     [SerializeField] private DiceSide[] dsObjects;
     [SerializeField] private Vector2 torqueValue;
 
-    private void Start()
-    {
+    private void Start() {
         rb = this.GetComponent<Rigidbody>();
         initialPos = transform.position;
         dsObjects = GetComponentsInChildren<DiceSide>();
         rb.useGravity = false;
     }
 
-    private void Update()
-    {
+    private void Update() {
         if (Input.GetMouseButtonDown(1))
             RollDice();
 
-        if(rb.IsSleeping() && !hasLanded && hasThrown)
-        {
+        if(rb.IsSleeping())
+            CheckDiceState();
+        
+        // original script for above
+        // if (rb.IsSleeping() && !hasLanded && hasThrown) {
+        //     hasLanded = true;
+        //     rb.isKinematic = true;
+        //     rb.useGravity = false;
+        // }
+        // else if (rb.IsSleeping() && hasLanded && diceValue == 0) {
+        //     RollAgain();
+        // }
+    }
+
+    private void CheckDiceState() {
+        if (!hasLanded && hasThrown) {
             hasLanded = true;
-            rb.useGravity = false;
             rb.isKinematic = true;
+            rb.useGravity = false;
+            return;
         }
-        else if(rb.IsSleeping() && hasLanded && diceValue == 0)
-        {
+
+        if (hasLanded && diceValue == 0) {
             RollAgain();
+            return;
         }
     }
 
-    private void RollDice()
-    {
-        if (hasThrown && hasLanded)
-        {
+    private void RollDice() {
+        if (hasThrown && hasLanded) {
             ResetDice();
             return;
         }
-        hasThrown = true;
-        rb.useGravity = true;
-        rb.AddTorque(RandomTorqueAmount(torqueValue),
-            RandomTorqueAmount(torqueValue),
-            RandomTorqueAmount(torqueValue));
+        Roll();
     }
 
-    private void RollAgain()
-    {
+    private void RollAgain() {
         ResetDice();
+        Roll();
+    }
+
+    private void Roll() {
         hasThrown = true;
         rb.useGravity = true;
         rb.AddTorque(RandomTorqueAmount(torqueValue),
@@ -61,17 +70,15 @@ public class DiceScript : MonoBehaviour
             RandomTorqueAmount(torqueValue));
     }
 
-    private float RandomTorqueAmount(Vector2 torque)
-    {
-        return Random.Range(torque.x, torque.y);
-    }
-
-    private void ResetDice()
-    {
+    private void ResetDice() {
         transform.position = initialPos;
         hasThrown = false;
         hasLanded = false;
         rb.useGravity = false;
         rb.isKinematic = false;
+    }
+    
+    private float RandomTorqueAmount(Vector2 torque) {
+        return Random.Range(torque.x, torque.y);
     }
 }

@@ -580,6 +580,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dice_Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 5299749329950381658, guid: 4de7951a2bfb9064d94f40a1cd96a771,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de7951a2bfb9064d94f40a1cd96a771, type: 3}
 --- !u!1 &541417097
